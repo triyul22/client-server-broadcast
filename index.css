@@ -1,0 +1,68 @@
+main {
+    max-width: 60%;
+    margin: 0 auto;
+
+}
+ul {
+    list-style-type: none;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid slategray;
+    justify-content: flex-start;
+}
+.main-info{
+    width: 40%;
+    display: block;
+}
+
+.title {
+    font-family: 'Lucida Sans Unicode', sans-serif;
+    font-size: 150%;
+    color: darkgray;
+}
+
+.city {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 200%;
+    color: slategray;
+}
+.temperature {
+    font-family: 'Sylfaen', serif;
+    font-weight: bold;
+    font-size: 500%;
+    letter-spacing: -5px;
+    color: slategray;
+    float: right;
+}
+.image {
+    border: 3px solid slategray;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.favourite {
+    padding-top: 15px;
+    width: auto;
+}
+.weather-list {
+    flex: 1;
+    padding-left: 50px;
+}
+.favourite li {
+    background-color: darkgray;
+    color: aliceblue;
+    margin-top: 10px;
+    padding: 5px;
+    width: auto;
+
+}
+.favourite li span{
+    font-weight: bold;
+}
+.favourite li .description {
+    display: inline-block;
+    float: right;
+    margin: 0 0;
+}
