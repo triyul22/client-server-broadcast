@@ -1,68 +1,172 @@
 main {
     max-width: 60%;
     margin: 0 auto;
-
 }
 ul {
     list-style-type: none;
 }
+.current-flex-container {
+    display: flex;
+    max-width: 100%;
+}
 .flex-container {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid slategray;
     justify-content: flex-start;
 }
-.main-info{
+.update-btn {
+    width: 200px;
+    height: 40px;
+    background-color: lightgray;
+    border: 1px solid darkgrey;
+    margin: auto 40% auto auto;
+    font-weight: bold;
+    color: gray;
+}
+.current-title {
+    display: flex;
+    justify-content: space-between;
+}
+.favourite {
+    padding: 0 0;
+}
+.favourite .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.favourite .flex-container h3, div, span, button{
+    display: inline;
+}
+.main-info {
     width: 40%;
     display: block;
+    padding-right: 40px;
 }
-
+.list-container {
+    display: flex;
+    justify-content: space-between;
+}
 .title {
     font-family: 'Lucida Sans Unicode', sans-serif;
     font-size: 150%;
     color: darkgray;
 }
-
+.current-city {
+    font-size: 200%;
+}
 .city {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 200%;
     color: slategray;
 }
 .temperature {
     font-family: 'Sylfaen', serif;
     font-weight: bold;
-    font-size: 500%;
-    letter-spacing: -5px;
     color: slategray;
     float: right;
 }
+.favourite-temp {
+    font-size: 200%;
+    letter-spacing: -1px;
+}
+
+.current_temp{
+    font-size: 500%;
+    letter-spacing: -5px;
+}
 .image {
-    border: 3px solid slategray;
-    width: 100px;
-    height: 100px;
     display: inline-block;
 }
-.favourite {
+.current-image {
+    width: 100px;
+    height: 100px;
+}
+.image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.favourite-image {
+    width: 50px;
+    height: 50px;
+}
+.current {
     padding-top: 15px;
+    padding-left: 0;
     width: auto;
 }
+
 .weather-list {
     flex: 1;
-    padding-left: 50px;
 }
-.favourite li {
+
+.current li {
     background-color: darkgray;
     color: aliceblue;
     margin-top: 10px;
     padding: 5px;
     width: auto;
-
 }
-.favourite li span{
+
+.current li span {
     font-weight: bold;
 }
-.favourite li .description {
+
+.current li .description {
     display: inline-block;
     float: right;
     margin: 0 0;
+}
+
+.city-list-header{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.add-button {
+    height: 30px;
+    width: 30px;
+    background-color: gray;
+    border-radius: 50%;
+    border: 1px solid gray;
+    color: aliceblue;
+    text-align: center;
+}
+.add-city-form {
+    margin-top: 20px;
+}
+.add-city-form label input{
+    height: 60%;
+    background-color: gainsboro;
+    border: 1px solid lightgray;
+}
+.list-container ul{
+    padding: 0 0;
+    width: 100%;
+}
+.list-container .list-start {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-auto-rows: minmax(auto, auto);
+}
+
+@media (max-width: 1000px) {
+    .current-flex-container {
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 100%;
+    }
+
+    .current-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .list-container .list-start {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

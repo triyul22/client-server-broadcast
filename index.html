@@ -8,20 +8,23 @@
 <body>
 <header></header>
 <main>
-    <h1 class="title">Your weather</h1>
-        <div class="flex-container">
+    <div class="current-title">
+        <h1 class="title">Your weather</h1>
+        <button class="update-btn">Update geolocation</button>
+    </div>
+    <div class="flex-container current-flex-container">
         <div class="main-info">
-            <h3 class="city">Saint Petersburg</h3>
-            <div class="image">
-                <img src="" alt="Weather icon"/>
+            <h3 class="current-city city">Saint Petersburg</h3>
+            <div class="image current-image">
+                <img src="weather-icon.png" alt="Weather icon"/>
             </div>
-            <span class="temperature favourite_temp">8	&#176;C</span>
+            <span class="temperature current_temp">8	&#176;C</span>
         </div>
         <div class="weather-list">
-            <ul class="favourite">
+            <ul class="current">
                 <li>
                     <span>Wind</span>
-                    <p class="description">Moderate breeze, North-northwest</p>
+                    <p class="description">Breeze, North-northwest</p>
                 </li>
                 <li>
                     <span>Cloudiness</span>
@@ -42,15 +45,151 @@
             </ul>
         </div>
     </div>
-    <h2 class="title">Favourite</h2>
-    <div>
-        <ul>
+    <div class="city-list-header">
+        <h2 class="title">Favourite</h2>
+        <form class="add-city-form" action="">
+            <label>
+                <input type="search" name="search" placeholder="Add new city" size="30%">
+            </label>
+            <button class="add-button">+</button>
+        </form>
+    </div>
+    <div class="list-container">
+        <ul class="list-start">
             <li class="favourite">
-                <div>
-                    <ul>
-                        <li></li>
+                <div class="flex-container">
+                    <h3 class="city">Moscow</h3>
+                    <div class="image favourite-image">
+                        <img src="weather-icon.png" alt="Weather icon"/>
+                    </div>
+                    <span class="temperature favourite-temp">8	&#176;C</span>
+                    <button class="add-button">x</button>
+                </div>
+                <div class="weather-list">
+                    <ul class="current">
+                        <li>
+                            <span>Wind</span>
+                            <p class="description">Moderate breeze, North-northwest</p>
+                        </li>
+                        <li>
+                            <span>Cloudiness</span>
+                            <p class="description">Broken clouds</p>
+                        </li>
+                        <li>
+                            <span>Pressure</span>
+                            <p class="description">1013 hps</p>
+                        </li>
+                        <li>
+                            <span>Humidity</span>
+                            <p class="description">52 %</p>
+                        </li>
+                        <li>
+                            <span>Coordinates</span>
+                            <p class="description">[59.88, 30.42]</p>
+                        </li>
                     </ul>
-
+                </div>
+            </li>
+            <li class="favourite">
+                <div class="flex-container">
+                    <h3 class="city">Khabarovsk</h3>
+                    <div class="image favourite-image">
+                        <img src="weather-icon.png" alt="Weather icon"/>
+                    </div>
+                    <span class="temperature favourite-temp">8	&#176;C</span>
+                    <button class="add-button">x</button>
+                </div>
+                <div class="weather-list">
+                    <ul class="current">
+                        <li>
+                            <span>Wind</span>
+                            <p class="description">Moderate breeze, North-northwest</p>
+                        </li>
+                        <li>
+                            <span>Cloudiness</span>
+                            <p class="description">Broken clouds</p>
+                        </li>
+                        <li>
+                            <span>Pressure</span>
+                            <p class="description">1013 hps</p>
+                        </li>
+                        <li>
+                            <span>Humidity</span>
+                            <p class="description">52 %</p>
+                        </li>
+                        <li>
+                            <span>Coordinates</span>
+                            <p class="description">[59.88, 30.42]</p>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="favourite">
+                <div class="flex-container">
+                    <h3 class="city">Moscow</h3>
+                    <div class="image favourite-image">
+                        <img src="weather-icon.png" alt="Weather icon"/>
+                    </div>
+                    <span class="temperature favourite-temp">8	&#176;C</span>
+                    <button class="add-button">x</button>
+                </div>
+                <div class="weather-list">
+                    <ul class="current">
+                        <li>
+                            <span>Wind</span>
+                            <p class="description">Moderate breeze, North-northwest</p>
+                        </li>
+                        <li>
+                            <span>Cloudiness</span>
+                            <p class="description">Broken clouds</p>
+                        </li>
+                        <li>
+                            <span>Pressure</span>
+                            <p class="description">1013 hps</p>
+                        </li>
+                        <li>
+                            <span>Humidity</span>
+                            <p class="description">52 %</p>
+                        </li>
+                        <li>
+                            <span>Coordinates</span>
+                            <p class="description">[59.88, 30.42]</p>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="favourite">
+                <div class="flex-container">
+                    <h3 class="city">Khabarovsk</h3>
+                    <div class="image favourite-image">
+                        <img src="weather-icon.png" alt="Weather icon"/>
+                    </div>
+                    <span class="temperature favourite-temp">8	&#176;C</span>
+                    <button class="add-button">x</button>
+                </div>
+                <div class="weather-list">
+                    <ul class="current">
+                        <li>
+                            <span>Wind</span>
+                            <p class="description">Moderate breeze, North-northwest</p>
+                        </li>
+                        <li>
+                            <span>Cloudiness</span>
+                            <p class="description">Broken clouds</p>
+                        </li>
+                        <li>
+                            <span>Pressure</span>
+                            <p class="description">1013 hps</p>
+                        </li>
+                        <li>
+                            <span>Humidity</span>
+                            <p class="description">52 %</p>
+                        </li>
+                        <li>
+                            <span>Coordinates</span>
+                            <p class="description">[59.88, 30.42]</p>
+                        </li>
+                    </ul>
                 </div>
             </li>
         </ul>
