@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<header></header>
 <main>
-    <div class="current-title">
+    <section class="current-title">
         <h1 class="title">Your weather</h1>
         <button class="update-btn">Update geolocation</button>
-    </div>
-    <div class="flex-container current-flex-container">
-        <div class="main-info">
-            <h3 class="current-city city">Saint Petersburg</h3>
-            <div class="image current-image">
-                <img src="weather-icon.png" alt="Weather icon"/>
+    </section>
+    <section class="flex-container current-flex-container">
+        <div>
+            <h2 id="current-city" class="current-city city"></h2>
+            <div class="main-info">
+                <div class="image current-image">
+                    <img src="weather-icon.png" alt="Weather icon"/>
+                </div>
+                <div>
+                    <span id="current-temp" class="temperature current_temp"></span>
+                </div>
             </div>
-            <span class="temperature current_temp">8	&#176;C</span>
         </div>
         <div class="weather-list">
             <ul class="current">
@@ -44,17 +48,15 @@
                 </li>
             </ul>
         </div>
-    </div>
-    <div class="city-list-header">
+    </section>
+    <section class="city-list-header">
         <h2 class="title">Favourite</h2>
         <form class="add-city-form" action="">
-            <label>
-                <input type="search" name="search" placeholder="Add new city" size="30%">
-            </label>
+            <input type="search" name="search" placeholder="Add new city" size="30%">
             <button class="add-button">+</button>
         </form>
-    </div>
-    <div class="list-container">
+    </section>
+    <section class="list-container">
         <ul class="list-start">
             <li class="favourite">
                 <div class="flex-container">
@@ -69,7 +71,7 @@
                     <ul class="current">
                         <li>
                             <span>Wind</span>
-                            <p class="description">Moderate breeze, North-northwest</p>
+                            <p class="description">Breeze, North-northwest</p>
                         </li>
                         <li>
                             <span>Cloudiness</span>
@@ -103,7 +105,7 @@
                     <ul class="current">
                         <li>
                             <span>Wind</span>
-                            <p class="description">Moderate breeze, North-northwest</p>
+                            <p class="description">Breeze, North-northwest</p>
                         </li>
                         <li>
                             <span>Cloudiness</span>
@@ -137,7 +139,7 @@
                     <ul class="current">
                         <li>
                             <span>Wind</span>
-                            <p class="description">Moderate breeze, North-northwest</p>
+                            <p class="description">Breeze, North-northwest</p>
                         </li>
                         <li>
                             <span>Cloudiness</span>
@@ -171,7 +173,7 @@
                     <ul class="current">
                         <li>
                             <span>Wind</span>
-                            <p class="description">Moderate breeze, North-northwest</p>
+                            <p class="description">Breeze, North-northwest</p>
                         </li>
                         <li>
                             <span>Cloudiness</span>
@@ -193,9 +195,7 @@
                 </div>
             </li>
         </ul>
-    </div>
-
+    </section>
 </main>
-<footer></footer>
 </body>
 </html>
