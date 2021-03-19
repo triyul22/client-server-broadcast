@@ -12,12 +12,12 @@
         <h1 class="title">Your weather</h1>
         <button class="update-btn">Update geolocation</button>
     </section>
-    <section class="flex-container current-flex-container">
+    <section id="current-flex-container" class="flex-container current-flex-container">
         <div>
             <h2 id="current-city" class="current-city city"></h2>
             <div class="main-info">
                 <div class="image current-image">
-                    <img src="weather-icon.png" alt="Weather icon"/>
+                    <img id="current-img" src="" alt="Weather icon"/>
                 </div>
                 <div>
                     <span id="current-temp" class="temperature current_temp"></span>
@@ -25,35 +25,38 @@
             </div>
         </div>
         <div class="weather-list">
-            <ul class="current">
+            <ul class="current list">
                 <li>
                     <span>Wind</span>
-                    <p class="description">Breeze, North-northwest</p>
+                    <p class="description"></p>
                 </li>
                 <li>
                     <span>Cloudiness</span>
-                    <p class="description">Broken clouds</p>
+                    <p class="description"></p>
                 </li>
                 <li>
                     <span>Pressure</span>
-                    <p class="description">1013 hps</p>
+                    <p class="description"></p>
                 </li>
                 <li>
                     <span>Humidity</span>
-                    <p class="description">52 %</p>
+                    <p class="description"></p>
                 </li>
                 <li>
                     <span>Coordinates</span>
-                    <p class="description">[59.88, 30.42]</p>
+                    <p class="description"></p>
                 </li>
             </ul>
         </div>
     </section>
+    <div id="current-loader">
+        <img src="loader.gif" class="loader" alt="">
+    </div>
     <section class="city-list-header">
         <h2 class="title">Favourite</h2>
-        <form class="add-city-form" action="">
+        <form class="add-city-form" action="#">
             <input type="search" name="search" placeholder="Add new city" size="30%">
-            <button class="add-button">+</button>
+            <button class="add-button" onclick="add_city(this)">+</button>
         </form>
     </section>
     <section class="list-container">
@@ -68,7 +71,7 @@
                     <button class="add-button">x</button>
                 </div>
                 <div class="weather-list">
-                    <ul class="current">
+                    <ul class="list">
                         <li>
                             <span>Wind</span>
                             <p class="description">Breeze, North-northwest</p>
@@ -102,7 +105,7 @@
                     <button class="add-button">x</button>
                 </div>
                 <div class="weather-list">
-                    <ul class="current">
+                    <ul class="list">
                         <li>
                             <span>Wind</span>
                             <p class="description">Breeze, North-northwest</p>
@@ -136,7 +139,7 @@
                     <button class="add-button">x</button>
                 </div>
                 <div class="weather-list">
-                    <ul class="current">
+                    <ul class="list">
                         <li>
                             <span>Wind</span>
                             <p class="description">Breeze, North-northwest</p>
@@ -170,7 +173,7 @@
                     <button class="add-button">x</button>
                 </div>
                 <div class="weather-list">
-                    <ul class="current">
+                    <ul class="list">
                         <li>
                             <span>Wind</span>
                             <p class="description">Breeze, North-northwest</p>
