@@ -214,12 +214,15 @@ ul {
     }
 }
 @media screen and (max-width: 650px) {
+    main {
+        max-width: 70%;
+    }
     .title {
-        font-size: 120%;
+        font-size: 140%;
     }
     .current_temp {
-        font-size: 300%;
-        letter-spacing: -1px;
+        font-size: 400%;
+        letter-spacing: -2px;
     }
     .main-info {
         width: 80%;
@@ -250,6 +253,9 @@ ul {
         color: transparent;
         background-image: url("upload_img.jpg");
         background-size: 28px;
+    }
+    main {
+        max-width: 90%;
     }
     .main-info {
         margin-right: 0;
