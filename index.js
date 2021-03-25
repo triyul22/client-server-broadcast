@@ -14,6 +14,9 @@ function success({ coords }) {
             const data = JSON.parse(this.responseText);
             set_current_info(data);
         }
+        else {
+            alert("Can't load the city info")
+        }
     });
 
     const url_conn = "https://weatherbit-v1-mashape.p.rapidapi.com/current?lon=" + longitude + "&lat=" + latitude;
@@ -67,6 +70,9 @@ function load_city_info(city_name){
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === this.DONE) {
             fill_favourite_html(this.responseText);
+        }
+        else {
+            alert("Can't load the city info")
         }
     });
 
