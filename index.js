@@ -14,7 +14,7 @@ function success({ coords }) {
             const data = JSON.parse(this.responseText);
             set_current_info(data);
         }
-        else {
+        else if (xhr.status !== 200 && xhr.status !== 0){
             alert("Can't load the city info")
         }
     });
@@ -71,7 +71,7 @@ function load_city_info(city_name){
         if (this.readyState === this.DONE) {
             fill_favourite_html(this.responseText);
         }
-        else {
+        else if (xhr.status !== 200 && xhr.status !== 0){
             alert("Can't load the city info")
         }
     });
@@ -81,13 +81,10 @@ function load_city_info(city_name){
     xhr.setRequestHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com");
 
     xhr.send(data);
-    console.log(this)
 }
 
 function fill_favourite_html(params){
     const info = JSON.parse(params)["list"][0]
-    console.log(info)
-
     const li = createElement(info)
 
     document.getElementById("favourite-list").appendChild(li)
