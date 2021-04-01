@@ -63,21 +63,24 @@ function add_city(e) {
         JSON.parse(localStorage.getItem('favourite'))
         : [];
 
-    load_city_info(city)
-
     favourite_cities.push(city)
 
     localStorage.setItem('favourite', JSON.stringify(favourite_cities))
+
+    load_city_info(city)
 }
 
 function load_city_info(city_name){
     const data = null;
+    const li = createElement(city_name)
+    document.getElementById("favourite-list").appendChild(li)
 
     const xhr = new XMLHttpRequest();
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === this.DONE) {
-            fill_favourite_html(this.responseText);
+            console.log(this.responseText)
+            fill_favourite_html(this.responseText, li);
         }
         else if (xhr.status !== 200 && xhr.status !== 0){
             alert("Can't load the city info")
@@ -91,11 +94,39 @@ function load_city_info(city_name){
     xhr.send(data);
 }
 
-function fill_favourite_html(params){
-    const info = JSON.parse(params)["list"][0]
-    const li = createElement(info)
+function fill_favourite_html(params, li){
+    const weather_info = JSON.parse(params)["list"][0]
 
-    document.getElementById("favourite-list").appendChild(li)
+    const div_main_container = li.children[0]
+
+    const div_image = document.createElement("div")
+    div_image.className = "favourite-image"
+
+    const img = document.createElement("img")
+    img.src = "https://api.openweathermap.org/img/w/" + weather_info["weather"][0]["icon"] + ".png"
+    img.alt = "Weather icon"
+
+    div_image.appendChild(img)
+
+    const span = document.createElement("span")
+    span.className = "temperature favourite-temp"
+    let cur_temp = Math.floor(parseFloat(weather_info["main"]["temp"]) - 273.15)
+    span.innerHTML = cur_temp.toString() + " &#176;C"
+
+    div_main_container.insertBefore(div_image, div_main_container.lastElementChild)
+    div_main_container.insertBefore(span, div_main_container.lastElementChild)
+
+    const div_list = document.createElement("div")
+    div_list.className = "weather-list"
+
+    const ul = createWeatherList(weather_info)
+
+    div_list.appendChild(ul)
+    li.appendChild(div_list)
+
+    const loader = li.childNodes[1]
+    loader.remove()
+
 }
 
 function createWeatherList(weather_info){
@@ -128,7 +159,7 @@ function createWeatherList(weather_info){
     return ul
 }
 
-function createElement(weather_info){
+function createElement(city_name){
     const li_element = document.createElement("li");
     li_element.className = "favourite"
     const div_main_container = document.createElement("div")
@@ -136,21 +167,7 @@ function createElement(weather_info){
 
     const h3 = document.createElement("h3")
     h3.className = "city"
-    h3.innerHTML = weather_info["name"]
-
-    const div_image = document.createElement("div")
-    div_image.className = "favourite-image"
-
-    const img = document.createElement("img")
-    img.src = "https://api.openweathermap.org/img/w/" + weather_info["weather"][0]["icon"] + ".png"
-    img.alt = "Weather icon"
-
-    div_image.appendChild(img)
-
-    const span = document.createElement("span")
-    span.className = "temperature favourite-temp"
-    let cur_temp = Math.floor(parseFloat(weather_info["main"]["temp"]) - 273.15)
-    span.innerHTML = cur_temp.toString() + " &#176;C"
+    h3.innerHTML = city_name
 
     const button = document.createElement("button")
     button.className = "add-button"
@@ -158,31 +175,38 @@ function createElement(weather_info){
     button.onclick = function (){
         console.log(button.parentElement.parentElement.remove())
         const favourite_list = JSON.parse(localStorage.getItem("favourite"))
-        const index = favourite_list.indexOf(weather_info["name"])
+        //const index = favourite_list.indexOf(weather_info["name"])
+        const index = favourite_list.indexOf(city_name)
         favourite_list.splice(index, 1)
         localStorage.setItem("favourite", JSON.stringify(favourite_list))
     }
 
+    const div_loader = document.createElement("div")
+    div_loader.style.display = "flex"
+    const img_loader = document.createElement("img")
+    img_loader.src = "loader.gif"
+    img_loader.alt = "Waiting, please. The info is loading"
+    img_loader.style.maxWidth = "50%"
+    img_loader.style.margin = "10px auto"
+    div_loader.appendChild(img_loader)
+
     div_main_container.appendChild(h3)
-    div_main_container.appendChild(div_image)
-    div_main_container.appendChild(span)
+
     div_main_container.appendChild(button)
 
     li_element.appendChild(div_main_container)
+    li_element.appendChild(div_loader)
+    console.log(li_element)
 
-    const div_list = document.createElement("div")
-    div_list.className = "weather-list"
-
-    const ul = createWeatherList(weather_info)
-
-    div_list.appendChild(ul)
-    li_element.appendChild(div_list)
 
     return li_element
 }
 
-if (localStorage.getItem('favourite') !== null){
-    JSON.parse(localStorage.getItem('favourite')).forEach(function (city) {
-        load_city_info(city);
-    })
-}
+setTimeout(function() {
+    if (localStorage.getItem('favourite') !== null) {
+        JSON.parse(localStorage.getItem('favourite')).forEach(function (city) {
+            console.log(city)
+            load_city_info(city);
+        })
+    }
+}, 100)
