@@ -24,11 +24,7 @@ ul {
     margin: 0 auto;
     left: 50%;
 }
-/*current-flex-container div {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    height: auto;*/
-/*}*/
+
 .flex-container {
     width: 100%;
     display: flex;

@@ -3,9 +3,19 @@ navigator.geolocation.getCurrentPosition(success, error, {
 })
 
 function success({ coords }) {
+    const { latitude, longitude } = coords
+    load_main_city(latitude, longitude)
+}
+
+function error({ message }) {
+    document.getElementById("current-loader").style.visibility = 'hidden';
+    const { latitude, longitude } = {latitude: 59.92708206176758, longitude: 30.3396110534668 }
+    load_main_city(latitude, longitude)
+}
+
+function load_main_city(latitude, longitude){
     document.getElementById("current-flex-container").style.visibility = 'visible';
     document.getElementById("current-loader").style.visibility = 'hidden';
-    const { latitude, longitude } = coords
 
     const xhr = new XMLHttpRequest();
 
@@ -27,12 +37,6 @@ function success({ coords }) {
     xhr.send();
 }
 
-function error({ message }) {
-    const default_city = "London"
-    load_city_info(default_city)
-    console.log(message)
-}
-
 function set_current_info(data) {
     const info = data["data"][0]
 
@@ -50,12 +54,16 @@ function set_current_info(data) {
     weather_list[4].children[1].innerHTML = "[" + info["lat"] + ", " + info["lon"] + "]"
 }
 
-function add_city() {
+function add_city(e) {
+
     const city = document.getElementById("add-city").value
+    document.getElementById("add-city").value = ""
 
     const favourite_cities = localStorage.getItem('favourite') !== null ?
         JSON.parse(localStorage.getItem('favourite'))
         : [];
+
+    load_city_info(city)
 
     favourite_cities.push(city)
 
@@ -171,7 +179,6 @@ function createElement(weather_info){
     li_element.appendChild(div_list)
 
     return li_element
-
 }
 
 if (localStorage.getItem('favourite') !== null){
